@@ -11,18 +11,19 @@ export default function List() {
     //     {
     //     name:"Comida"
     // }]
+
+   
     return (
         <Box display="flex" width="30%" height="20%" backgroundColor="gray">
-            
-            <Typography variant="h4" gutterBottom color="white">  holaa</Typography>
-                <IconButton aria-label="delete"sx={{color:"red"}} >
-                    <DeleteIcon />
-                </IconButton>
-                <IconButton aria-label="delete" sx={{color:"green"}}>
-                <FaCheck />
-                </IconButton>
 
-           
+            <Typography variant="h4" gutterBottom color="white">  holaa</Typography>
+            <IconButton aria-label="delete" sx={{ color: "red" }} >
+                <DeleteIcon />
+            </IconButton>
+            <IconButton aria-label="delete" sx={{ color: "green" }}>
+                <FaCheck />
+            </IconButton>
+
         </Box>
     )
 }

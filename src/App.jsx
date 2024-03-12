@@ -5,7 +5,9 @@ import ContainerList from "./components/ContainerList"
 import Box from '@mui/material/Box';
 
 function App() {
-
+  const obtengoValorinput=(tarea)=>{
+     
+  }
 
   return (
     <>
