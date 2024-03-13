@@ -20,14 +20,8 @@ export default function Form() {
     return (
         <Box>
             <Box display="flex">
-                <Box component="form" width="50%"
-                    sx={{
-                        '& > :not(style)': { m: 1, width: '50%' },
-                    }}
-                    noValidate
-                    autoComplete="off"
-                >
-                    <TextField id="outlined-basic" label="Tarea" variant="outlined" onChange={handleChange} fullWidth="50%" />
+                <Box component="form" width="50%" sx={{ width: '40%' }}>
+                    <TextField  label="Tarea"  onChange={handleChange} sx={{width:"90%"}} />
                 </Box>
                 <Box width="50%">
                     <FormControl fullWidth>
