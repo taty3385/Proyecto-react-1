@@ -1,25 +1,56 @@
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button';
 
-export default function Form() {
+import { useState } from 'react';
+import { Box, TextField, Button, MenuItem, FormControl, Select, InputLabel } from '@mui/material';
+import { IoMdSend } from "react-icons/io";
+
+export default function Form({ tareas }) {
+    const [tarea, setTarea] = useState(""); 
+
+    const onChange = (e) => {
+        setTarea(e.target.value);
+    }
+
+    const addTarea = () => {
+        const newTarea = {
+            id: crypto.randomUUID(),
+            nombre: tarea
+        };
+     
+        setTarea([...tareas, newTarea]);
+        
+        const updatedTareas = [...tareas, newTarea];
+        localStorage.setItem("tarea", JSON.stringify(updatedTareas));
+    }
     return (
         <Box>
-            <Box
-                component="form"
-                sx={{
-                    '& > :not(style)': { m: 1, width: '50%' },
-                }}
-                noValidate
-                autoComplete="off"
-            >
-                <TextField id="outlined-basic" label="Tarea" variant="outlined" />
+            <Box display="flex" justifyContent="center" alignItems="center">
+                <Box component="form" sx={{ width: '40%' }}>
+                    <TextField label="Tarea" onChange={onChange} sx={{ width: "90%", background: "white" }} />
+                </Box>
+                <Box width="40%">
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" >Seleccionar</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            sx={{ background: "white" }}
+                            label="Age"
+                        // onChange={handleChange}
+                        >
+                            <MenuItem >Todas</MenuItem>
+                            <MenuItem >Completo</MenuItem>
+                            <MenuItem >Incompleto</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
             </Box>
-            <Box display="flex" justifyContent="center">
-            <Button variant="contained">Contained</Button>
+            <Box display="flex" justifyContent="center" margin="10px">
+                <Button variant="contained" sx={{ padding: "5px", width: "20%", height: "40px" }} onClick={addTarea} >
+                    <IoMdSend />enviar
+                </Button>
             </Box>
-        
-            
+
+
         </Box>
     )
 }
