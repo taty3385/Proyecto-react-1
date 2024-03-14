@@ -1,47 +1,53 @@
 
 import { useState } from 'react';
-import { Box, TextField, Button,MenuItem,FormControl,Select,InputLabel } from '@mui/material';
+import { Box, TextField, Button, MenuItem, FormControl, Select, InputLabel } from '@mui/material';
+import { IoMdSend } from "react-icons/io";
 
-export default function Form() {
+export default function Form({ tareas }) {
+    const [tarea, setTarea] = useState(""); 
 
-    const [tarea, setTarea] = useState("")
-
-    const handleChange = (e) => {
-        console.log(e.target.value);
+    const onChange = (e) => {
         setTarea(e.target.value);
     }
 
-    const handleClick = () => {
-        console.log(tarea);
-
+    const addTarea = () => {
+        const newTarea = {
+            id: crypto.randomUUID(),
+            nombre: tarea
+        };
+     
+        setTarea([...tareas, newTarea]);
+        
+        const updatedTareas = [...tareas, newTarea];
+        localStorage.setItem("tarea", JSON.stringify(updatedTareas));
     }
-
-
     return (
         <Box>
-            <Box display="flex">
-                <Box component="form" width="50%" sx={{ width: '40%' }}>
-                    <TextField  label="Tarea"  onChange={handleChange} sx={{width:"90%"}} />
+            <Box display="flex" justifyContent="center" alignItems="center">
+                <Box component="form" sx={{ width: '40%' }}>
+                    <TextField label="Tarea" onChange={onChange} sx={{ width: "90%", background: "white" }} />
                 </Box>
-                <Box width="50%">
+                <Box width="40%">
                     <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">estado</InputLabel>
+                        <InputLabel id="demo-simple-select-label" >Seleccionar</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                           
+                            sx={{ background: "white" }}
                             label="Age"
-                            onChange={handleChange}
+                        // onChange={handleChange}
                         >
-                            <MenuItem >Ten</MenuItem>
-                            <MenuItem >Twenty</MenuItem>
-                            <MenuItem >Thirty</MenuItem>
+                            <MenuItem >Todas</MenuItem>
+                            <MenuItem >Completo</MenuItem>
+                            <MenuItem >Incompleto</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
             </Box>
-            <Box display="flex" justifyContent="center">
-                <Button variant="contained" onClick={handleClick}>enviar</Button>
+            <Box display="flex" justifyContent="center" margin="10px">
+                <Button variant="contained" sx={{ padding: "5px", width: "20%", height: "40px" }} onClick={addTarea} >
+                    <IoMdSend />enviar
+                </Button>
             </Box>
 
 

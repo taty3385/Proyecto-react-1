@@ -1,11 +1,18 @@
-import React from 'react'
-import List from './List' 
+import React, { useState } from 'react'
+import List from './List'
 import Box from '@mui/material/Box';
-import { FaBox } from 'react-icons/fa';
-export default function ContainerList() {
+
+export default function ContainerList({tarea}) {
+  const [tareas, setTareas] = useState(tarea)
+  
   return (
-    <Box display="flex" justifyContent="center" minHeight="300px" >
-        <List/>
-    </Box>
-  )
+  <>
+    {tareas.map((tarea) => (
+      <Box key={tarea.id} display="flex" justifyContent="center" minHeight="300px" background="red">
+       <List tareas={tarea}/>
+      </Box>
+    ))}
+  </>
+);
 }
+
