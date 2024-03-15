@@ -2,11 +2,23 @@
 import { IconButton, Box, Typography } from '@mui/material';
 import { FaCheck } from "react-icons/fa";
 
-export default function List({ tareas, handleDelete  ,handleComplete}) {
+export default function List({ tareas, setTareas,arrTareas }) {
 
-    
-    const complete = () => {
-        handleComplete(tareas.id); 
+    const handleDelete = (id) => {
+        const filtrarTareas = arrTareas.filter(t => t.id !== id);
+        setTareas(filtrarTareas);
+        localStorage.setItem("tarea", JSON.stringify(filtrarTareas));
+    };
+
+    const handleComplete = (id) => {
+        const updatedTareas = arrTareas.map(t => {
+            if (t.id === id) {
+                return { ...t, completado: !t.completado }; 
+            }
+            return t;
+        });
+        setTareas(updatedTareas);
+        localStorage.setItem("tarea", JSON.stringify(updatedTareas));
     };
 
     return (
@@ -18,7 +30,7 @@ export default function List({ tareas, handleDelete  ,handleComplete}) {
                 <IconButton aria-label="delete" sx={{ color: "white", background: "red" }} onClick={() => handleDelete(tareas.id)}>
                     delet
                 </IconButton>
-                <IconButton aria-label="delete" sx={{ color: "white", background: "green" }} onClick={complete}>
+                <IconButton aria-label="delete" sx={{ color: "white", background: "green" }} onClick={() => handleComplete(tareas.id)}>
                     <FaCheck />
                 </IconButton>
             </Box>

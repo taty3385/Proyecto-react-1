@@ -12,6 +12,7 @@ import {
 import { IoMdSend } from "react-icons/io";
 
 export default function Form({ tareas, setTareas }) {
+ 
     const [tarea, setTarea] = useState("");
 
     const onChange = (e) => {

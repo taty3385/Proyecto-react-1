@@ -2,7 +2,7 @@
 import List from "./List";
 import Box from "@mui/material/Box";
 
-export default function ContainerList({ tareas, handleDelete, handleComplete }) {
+export default function ContainerList({ tareas,setTareas }) {
   return (
     <>
       {tareas.map((tarea) => (
@@ -13,7 +13,7 @@ export default function ContainerList({ tareas, handleDelete, handleComplete }) 
           minHeight="300px"
           background="red"
         >
-          <List tareas={tarea} handleDelete={handleDelete} handleComplete={handleComplete} />
+          <List tareas={tarea} setTareas={setTareas} arrTareas={tareas} />
         </Box>
       ))}
     </>

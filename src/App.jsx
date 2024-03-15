@@ -12,33 +12,15 @@ function App() {
     { id: crypto.randomUUID(), nombre: "Trabajar", completado: false },
   ]);
 
-  if (
-    JSON.stringify(tareas) !== localStorage.getItem("tarea") &&
-    !!localStorage.getItem("tarea")
-  ) {
-    setTareas(JSON.parse(localStorage.getItem("tarea")));
+
+
+  const storedTareas = localStorage.getItem("tarea");
+  if (storedTareas && JSON.stringify(tareas) !== storedTareas) {
+    setTareas(JSON.parse(storedTareas));
   }
+  
 
-
-  const handleComplete = (id) => {
-    const updatedTareas = tareas.map(tarea => {
-      if (tarea.id === id) {
-        return { ...tarea, completado: !tarea.completado };
-      }
-      return tarea;
-    });
-    setTareas(updatedTareas);
-    localStorage.setItem("tarea", JSON.stringify(updatedTareas));
-  }
-
-
-  const handleDelete = (id) => {
-    const filtrarTareas = tareas.filter(tarea => tarea.id !== id);
-    setTareas(filtrarTareas);
-    localStorage.setItem("tarea", JSON.stringify(filtrarTareas));
-  }
-
-  return (
+return (
     <>
       <Box
         minHeight="100vh"
@@ -48,7 +30,7 @@ function App() {
       >
         <Header />
         <Form tareas={tareas} setTareas={setTareas} />
-        <ContainerList sx={{ with: 30 }} tareas={tareas} handleDelete={handleDelete} handleComplete={handleComplete} />
+        <ContainerList sx={{ with: 30, display:"flex "}} setTareas={setTareas} tareas={tareas}/>
         <Footer />
       </Box>
     </>
