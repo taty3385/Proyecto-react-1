@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
 
-export default function Form({ tareas, setTareas }) {
+export default function Form({ tareas, setTareas  }) {
  
     const [tarea, setTarea] = useState("");
 
