@@ -8,8 +8,8 @@ import { useState } from "react";
 
 function App() {
   const [tareas, setTareas] = useState([
-    { id: crypto.randomUUID(), nombre: "Cocinar" },
-    { id: crypto.randomUUID(), nombre: "Trabajar" },
+    { id: crypto.randomUUID(), nombre: "Cocinar", completado: false },
+    { id: crypto.randomUUID(), nombre: "Trabajar", completado: false },
   ]);
 
   if (
@@ -20,6 +20,23 @@ function App() {
   }
 
 
+  const handleComplete = (id) => {
+    const updatedTareas = tareas.map(tarea => {
+      if (tarea.id === id) {
+        return { ...tarea, completado: !tarea.completado };
+      }
+      return tarea;
+    });
+    setTareas(updatedTareas);
+    localStorage.setItem("tarea", JSON.stringify(updatedTareas));
+  }
+
+
+  const handleDelete = (id) => {
+    const filtrarTareas = tareas.filter(tarea => tarea.id !== id);
+    setTareas(filtrarTareas);
+    localStorage.setItem("tarea", JSON.stringify(filtrarTareas));
+  }
 
   return (
     <>
@@ -31,7 +48,7 @@ function App() {
       >
         <Header />
         <Form tareas={tareas} setTareas={setTareas} />
-        <ContainerList sx={{ with: 30 }} tareas={tareas}  />
+        <ContainerList sx={{ with: 30 }} tareas={tareas} handleDelete={handleDelete} handleComplete={handleComplete} />
         <Footer />
       </Box>
     </>
