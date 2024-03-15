@@ -8,10 +8,12 @@ import { FaCheck } from "react-icons/fa";
 export default function List({ tareas }) {
 
     const [tarea, setTareas] = useState(tareas)
+    console.log(tarea);
 
 
-
-
+    const handleDelete = () => {
+        onDelete(tarea.id);
+    }
     return (
         <Box display="flex" width="30%" height="20%" backgroundColor="white" sx={{ justifyContent: "space-between" }}>
             <Box>
