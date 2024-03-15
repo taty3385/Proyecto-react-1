@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
-import List from './List'
-import Box from '@mui/material/Box';
 
-export default function ContainerList({tarea}) {
-  const [tareas, setTareas] = useState(tarea)
-  
+import List from "./List";
+
+
+export default function ContainerList({ tareas, setTareas }) {
+  console.log(tareas);
   return (
-  <>
-    {tareas.map((tarea) => (
-      <Box key={tarea.id} display="flex" justifyContent="center" minHeight="300px" background="red">
-       <List tareas={tarea}/>
-      </Box>
-    ))}
-  </>
-);
+    <>
+      <List setTareas={setTareas} tareas={tareas} />
+      
+</>
+  );
 }
-
