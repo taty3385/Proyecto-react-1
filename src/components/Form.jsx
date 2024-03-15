@@ -11,9 +11,14 @@ import {
 } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
 
-export default function Form({ tareas, setTareas  }) {
- 
+export default function Form({ tareas, setTareas }) {
+
     const [tarea, setTarea] = useState("");
+    const [filtro, setFiltro] = useState("Todas");
+
+
+
+
 
     const onChange = (e) => {
         setTarea(e.target.value);
@@ -25,7 +30,28 @@ export default function Form({ tareas, setTareas  }) {
         };
         setTareas([...tareas, newTarea]);
         localStorage.setItem("tarea", JSON.stringify([...tareas, newTarea]));
+
+
     };
+
+    const handleChange = (e) => {
+        setFiltro(e.target.value);
+
+    }
+    tareas.filter((tarea) => {
+        console.log(tarea);
+        if (filtro === "Todas") {
+
+            return true;
+        } else if (filtro === "Completo") {
+
+            return tarea.completado;
+        } else if (filtro === "Incompleto") {
+            ;
+            return !tarea.completado;
+        }
+    });
+
 
     return (
         <Box>
@@ -45,11 +71,12 @@ export default function Form({ tareas, setTareas  }) {
                             id="demo-simple-select"
                             sx={{ background: "white" }}
                             label="Age"
-                        // onChange={handleChange}
+                            value={filtro}
+                            onChange={handleChange}
                         >
-                            <MenuItem>Todas</MenuItem>
-                            <MenuItem>Completo</MenuItem>
-                            <MenuItem>Incompleto</MenuItem>
+                            <MenuItem value="Todas">Todas</MenuItem>
+                            <MenuItem value="Completo">Completo</MenuItem>
+                            <MenuItem value="Incompleto">Incompleto</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
@@ -67,3 +94,6 @@ export default function Form({ tareas, setTareas  }) {
         </Box>
     );
 }
+
+
+
