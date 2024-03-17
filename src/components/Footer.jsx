@@ -1,4 +1,4 @@
-import { FaBoxes, FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { Typography, Box } from '@mui/material';
 
 export default function Footer() {
