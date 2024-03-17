@@ -1,18 +1,17 @@
-
+import FormFilter from "./FormFilter";
 import { useState } from "react";
 import {
     Box,
     TextField,
     Button,
-    MenuItem,
-    FormControl,
-    Select,
-    InputLabel,
+
 } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
+import { WidthFull } from "@mui/icons-material";
 
-export default function Form({ tareas, setTareas  }) {
- 
+
+export default function Form({ tareas, setTareas }) {
+
     const [tarea, setTarea] = useState("");
 
     const onChange = (e) => {
@@ -22,48 +21,44 @@ export default function Form({ tareas, setTareas  }) {
         const newTarea = {
             id: crypto.randomUUID(),
             nombre: tarea,
+            completado: false
         };
         setTareas([...tareas, newTarea]);
         localStorage.setItem("tarea", JSON.stringify([...tareas, newTarea]));
+
+
     };
 
+
+
+
     return (
-        <Box>
-            <Box display="flex" justifyContent="center" alignItems="center">
-                <Box component="form" sx={{ width: "40%" }}>
+        <Box display="flex" width="100%"  justifyContent="center">
+            <Box display="flex" width="80%"    borderRadius="5px">
+                <Box component="form" width="80%" >
                     <TextField
                         label="Tarea"
                         onChange={onChange}
-                        sx={{ width: "90%", background: "white" }}
+                        sx={{ width: "100%" }}
                     />
                 </Box>
-                <Box width="40%">
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">Seleccionar</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            sx={{ background: "white" }}
-                            label="Age"
-                        // onChange={handleChange}
-                        >
-                            <MenuItem>Todas</MenuItem>
-                            <MenuItem>Completo</MenuItem>
-                            <MenuItem>Incompleto</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Box>
+                <FormFilter tareas={tareas} setTareas={setTareas} />
+
             </Box>
-            <Box display="flex" justifyContent="center" margin="10px">
+            <Box display="flex" justifyContent="center"  width="10%" height="50px">
                 <Button
                     variant="contained"
-                    sx={{ padding: "5px", width: "20%", height: "40px" }}
+                    sx={{ padding: "5px", width: "100%" }} 
                     onClick={() => addTarea(tarea)}
                 >
                     <IoMdSend />
                     enviar
                 </Button>
             </Box>
+
         </Box>
     );
 }
+
+
+

@@ -7,29 +7,25 @@ import Box from "@mui/material/Box";
 import { useState } from "react";
 
 function App() {
-  const [tareas, setTareas] = useState([
+
+  const defaultTareas = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
     { id: crypto.randomUUID(), nombre: "Cocinar", completado: false },
     { id: crypto.randomUUID(), nombre: "Trabajar", completado: false },
-  ]);
+];
 
+const [tareas, setTareas] = useState(defaultTareas);
 
-
-  const storedTareas = localStorage.getItem("tarea");
-  if (storedTareas && JSON.stringify(tareas) !== storedTareas) {
-    setTareas(JSON.parse(storedTareas));
-  }
-  
 
 return (
     <>
       <Box
         minHeight="100vh"
-        backgroundColor="blue"
+        backgroundColor="white"
         display="flex"
         flexDirection="column"
       >
         <Header />
-        <Form tareas={tareas} setTareas={setTareas} />
+        <Form tareas={tareas} setTareas={setTareas}/>
         <ContainerList sx={{ with: 30, display:"flex "}} setTareas={setTareas} tareas={tareas}/>
         <Footer />
       </Box>

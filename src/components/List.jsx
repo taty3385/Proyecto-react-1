@@ -1,7 +1,9 @@
 
-import { IconButton, Box, Typography } from '@mui/material';
-import { FaCheck } from "react-icons/fa";
+import { Box, Typography, Checkbox } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function List({ tareas, setTareas, }) {
 
     const handleDelete = (id) => {
@@ -23,26 +25,40 @@ export default function List({ tareas, setTareas, }) {
 
     return (
         //   
-        <Box display="flex" width="100vw" height="20%" backgroundColor="red" sx={{ justifyContent: "center" }}>
+        <Box display="flex" flexWrap="wrap" width="100vw" sx={{ justifyContent: "center", marginTop: "50px" }}>
             {tareas.map(tarea => (
-                <Box key={tarea.id} mx={1}>
-                    <Box backgroundColor="white" display="flex" flexDirection="column">
+                <Box key={tarea.id} mx={2} border="1px solid gray" borderRadius="5px" padding="10px" width="30%" marginBottom="10px">
+                    <Box backgroundColor="white" display="flex">
+                        <Typography
+                            variant="h4"
+                            gutterBottom
+                            color="black"
+                            fontSize="20px"
+                            fontWeight="bold"
+                            marginRight="10px"
+                        >
+                            {tarea.completado ? "Tarea completada" : "Tarea incompleta"}
+                        </Typography>
+                        <IconButton aria-label="delete" size="small" onClick={() => handleDelete(tarea.id)}>
+                            <DeleteIcon fontSize="20px" />
+                        </IconButton>
 
-                        <Box>
-                            <IconButton aria-label="delete" sx={{ color: "white", background: "red" }} onClick={() => handleDelete(tarea.id)}>
-                                delet
-                            </IconButton>
-                            <IconButton aria-label="delete" sx={{ color: "white", background: "green" }} onClick={() => handleComplete(tarea.id)}>
-                                <FaCheck />
-                            </IconButton>
-                        </Box>
-                        <Box >
-                            <Typography variant="h4" gutterBottom color="black" sx={{ textDecoration: tarea.completado ? "line-through" : "none" }}>{tarea.nombre}</Typography>
+
+
+
+                    </Box>
+
+                    <Box display="flex" >
+                        <Checkbox {...label} onClick={() => handleComplete(tarea.id)} />
+                        <Box display="flex" alignItems="center">
+                            <Typography variant="h7" gutterBottom color="black">{tarea.nombre}</Typography>
                         </Box>
                     </Box>
                 </Box>
-            ))}
-        </Box>
+
+            ))
+            }
+        </Box >
 
     )
 }
