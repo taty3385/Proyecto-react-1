@@ -17,7 +17,7 @@ export default function Form({ tareas, setTareas }) {
 
     const onChange = (e) => {
         setTarea(e.target.value);
-      
+
     };
     const addTarea = (tarea) => {
         const newTarea = {
@@ -27,7 +27,7 @@ export default function Form({ tareas, setTareas }) {
         };
         setTareas([...tareas, newTarea]);
         localStorage.setItem("tarea", JSON.stringify([...tareas, newTarea]));
-    
+
 
 
     };
@@ -36,8 +36,8 @@ export default function Form({ tareas, setTareas }) {
 
 
     return (
-        <Box display="flex" width="100%"  justifyContent="center">
-            <Box display="flex" width="80%"    borderRadius="5px">
+        <Box display="flex" width="100%" justifyContent="center">
+            <Box display="flex" width="80%" borderRadius="5px">
                 <Box component="form" width="80%" >
                     <TextField
                         label="Tarea"
@@ -48,10 +48,10 @@ export default function Form({ tareas, setTareas }) {
                 <FormFilter tareas={tareas} setTareas={setTareas} />
 
             </Box>
-            <Box display="flex" justifyContent="center"  width="10%" height="50px">
+            <Box display="flex" justifyContent="center" width="10%" height="50px">
                 <Button
                     variant="contained"
-                    sx={{ padding: "5px", width: "100%" }} 
+                    sx={{ padding: "5px", width: "100%" }}
                     onClick={() => addTarea(tarea)}
                 >
                     <IoMdSend />
