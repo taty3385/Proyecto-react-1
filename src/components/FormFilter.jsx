@@ -8,8 +8,8 @@ import {
     InputLabel,
 } from "@mui/material";
 
-export default function FormFilter({ setTareas}) {
- 
+export default function FormFilter({ setTareas }) {
+
     const [filtro, setFiltro] = useState("Todas");
     const handleChange = (e) => {
         setFiltro(e.target.value);
@@ -30,22 +30,27 @@ export default function FormFilter({ setTareas}) {
     };
 
     return (
-        <Box width="40%">
-            <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Seleccionar</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    sx={{ background: "white" }}
-                    label="Age"
-                    value={filtro}
-                    onChange={handleChange}
-                >
-                    <MenuItem value="Todas">Todas</MenuItem>
-                    <MenuItem value="Completo">Completo</MenuItem>
-                    <MenuItem value="Incompleto">Incompleto</MenuItem>
-                </Select>
-            </FormControl>
+        <Box sx={{ width: "100%", display:"flex", justifyContent:"center"  }} >
+            <Box width="80%">
+                <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Seleccionar</InputLabel>
+                    <Select
+
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        sx={{ background: "white" }}
+                        label="Age"
+                        value={filtro}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="Todas">Todas</MenuItem>
+                        <MenuItem value="Completo">Completo</MenuItem>
+                        <MenuItem value="Incompleto">Incompleto</MenuItem>
+                    </Select>
+                </FormControl>
+            </Box>
         </Box>
+
+
     )
 }

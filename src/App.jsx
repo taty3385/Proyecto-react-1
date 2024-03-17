@@ -20,12 +20,12 @@ return (
     <>
       <Box
         minHeight="100vh"
-        backgroundColor="blue"
+        backgroundColor="white"
         display="flex"
         flexDirection="column"
       >
         <Header />
-        <Form tareas={tareas} setTareas={setTareas} />
+        <Form tareas={tareas} setTareas={setTareas}/>
         <ContainerList sx={{ with: 30, display:"flex "}} setTareas={setTareas} tareas={tareas}/>
         <Footer />
       </Box>

@@ -7,6 +7,7 @@ import {
 
 } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
+import { WidthFull } from "@mui/icons-material";
 
 
 export default function Form({ tareas, setTareas }) {
@@ -32,28 +33,29 @@ export default function Form({ tareas, setTareas }) {
 
 
     return (
-        <Box>
-            <Box display="flex" justifyContent="center" alignItems="center">
-                <Box component="form" sx={{ width: "40%" }}>
+        <Box display="flex" width="100%"  justifyContent="center">
+            <Box display="flex" width="80%"    borderRadius="5px">
+                <Box component="form" width="80%" >
                     <TextField
                         label="Tarea"
                         onChange={onChange}
-                        sx={{ width: "90%", background: "white" }}
+                        sx={{ width: "100%" }}
                     />
                 </Box>
-                <FormFilter tareas={tareas} setTareas={setTareas}/>
+                <FormFilter tareas={tareas} setTareas={setTareas} />
 
             </Box>
-            <Box display="flex" justifyContent="center" margin="10px">
+            <Box display="flex" justifyContent="center"  width="10%" height="50px">
                 <Button
                     variant="contained"
-                    sx={{ padding: "5px", width: "20%", height: "40px" }}
+                    sx={{ padding: "5px", width: "100%" }} 
                     onClick={() => addTarea(tarea)}
                 >
                     <IoMdSend />
                     enviar
                 </Button>
             </Box>
+
         </Box>
     );
 }
