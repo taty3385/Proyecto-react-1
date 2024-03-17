@@ -14,8 +14,10 @@ export default function Form({ tareas, setTareas }) {
 
     const [tarea, setTarea] = useState("");
 
+
     const onChange = (e) => {
         setTarea(e.target.value);
+      
     };
     const addTarea = (tarea) => {
         const newTarea = {
@@ -25,6 +27,7 @@ export default function Form({ tareas, setTareas }) {
         };
         setTareas([...tareas, newTarea]);
         localStorage.setItem("tarea", JSON.stringify([...tareas, newTarea]));
+    
 
 
     };
