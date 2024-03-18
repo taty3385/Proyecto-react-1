@@ -7,12 +7,13 @@ import {
 
 } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
-import { WidthFull } from "@mui/icons-material";
+
 
 
 export default function Form({ tareas, setTareas }) {
 
     const [tarea, setTarea] = useState("");
+  
 
 
     const onChange = (e) => {
@@ -27,7 +28,7 @@ export default function Form({ tareas, setTareas }) {
         };
         setTareas([...tareas, newTarea]);
         localStorage.setItem("tarea", JSON.stringify([...tareas, newTarea]));
-
+        setTarea("")
 
 
     };
@@ -43,6 +44,7 @@ export default function Form({ tareas, setTareas }) {
                         label="Tarea"
                         onChange={onChange}
                         sx={{ width: "100%" }}
+                        value={tarea}
                     />
                 </Box>
                 <FormFilter tareas={tareas} setTareas={setTareas} />
@@ -53,6 +55,7 @@ export default function Form({ tareas, setTareas }) {
                     variant="contained"
                     sx={{ padding: "5px", width: "100%" }}
                     onClick={() => addTarea(tarea)}
+                    value={tarea}
                 >
                     <IoMdSend />
                     enviar
