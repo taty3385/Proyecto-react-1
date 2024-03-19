@@ -27,7 +27,7 @@ export default function List({ tareas, setTareas, }) {
 
         <Box display="flex" flexWrap="wrap" width="100vw" sx={{ justifyContent: "center", marginTop: "50px" }}>
             {tareas.map(tarea => (
-                <Box className="boxs" key={tarea.id} mx={2} border="2px solid #CCD5AE" borderRadius="10px" width="30%" margin="40px" padding="10px">
+                <Box className="boxs" key={tarea.id} mx={2} border="2px solid #CCD5AE" borderRadius="10px" width={{sx: "50%", md: "30%"}} margin="40px" padding="10px">
                     <Box  backgroundColor="white" display="flex" >
                         <Typography
                             variant="h4"
