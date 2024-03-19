@@ -1,0 +1,13 @@
+body{
+    margin : 0px;
+    padding: 0px;
+    
+}
+
+
+@media(max-width: 539px){
+ .boxs{
+    width: 50%;
+      margin: 20px
+    }
+}
