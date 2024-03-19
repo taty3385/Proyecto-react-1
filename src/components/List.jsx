@@ -24,11 +24,11 @@ export default function List({ tareas, setTareas, }) {
     };
 
     return (
-        //   
+
         <Box display="flex" flexWrap="wrap" width="100vw" sx={{ justifyContent: "center", marginTop: "50px" }}>
             {tareas.map(tarea => (
-                <Box key={tarea.id} mx={2} border="1px solid gray" borderRadius="5px" padding="10px" width="30%" marginBottom="10px">
-                    <Box backgroundColor="white" display="flex">
+                <Box className="boxs" key={tarea.id} mx={2} border="2px solid #CCD5AE" borderRadius="10px" width="30%" margin="40px" padding="10px">
+                    <Box  backgroundColor="white" display="flex" >
                         <Typography
                             variant="h4"
                             gutterBottom
@@ -36,11 +36,12 @@ export default function List({ tareas, setTareas, }) {
                             fontSize="20px"
                             fontWeight="bold"
                             marginRight="10px"
+                            fontFamily="Eagle Lake"
                         >
                             {tarea.completado ? "Tarea completada" : "Tarea incompleta"}
                         </Typography>
-                        <IconButton aria-label="delete" size="small" onClick={() => handleDelete(tarea.id)}>
-                            <DeleteIcon fontSize="20px" />
+                        <IconButton aria-label="delete" size="small" sx={{color:"#D4A373"}} onClick={() => handleDelete(tarea.id)}>
+                            <DeleteIcon fontSize="20px" color="#D4A373" />
                         </IconButton>
 
 
@@ -48,9 +49,9 @@ export default function List({ tareas, setTareas, }) {
 
                     </Box>
 
-                    <Box display="flex" >
+                    <Box display="flex" backgroundColor="white">
                         <Checkbox {...label} onClick={() => handleComplete(tarea.id)} />
-                        <Box display="flex" alignItems="center">
+                        <Box display="flex" alignItems="center" px="3px">
                             <Typography variant="h7" gutterBottom color="black">{tarea.nombre}</Typography>
                         </Box>
                     </Box>

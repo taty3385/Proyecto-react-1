@@ -11,8 +11,13 @@ import {
 export default function FormFilter({ setTareas }) {
 
     const [filtro, setFiltro] = useState("Todas");
+   
+   
+   
+   
     const handleChange = (e) => {
         setFiltro(e.target.value);
+        
 
         const tareasFiltradas = JSON.parse(localStorage.getItem("tarea")).filter(
             (tarea) => {

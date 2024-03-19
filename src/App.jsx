@@ -5,6 +5,8 @@ import Form from "./components/Form";
 import ContainerList from "./components/ContainerList";
 import Box from "@mui/material/Box";
 import { useState } from "react";
+import './style.css';
+
 
 function App() {
 
