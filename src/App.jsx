@@ -1,4 +1,3 @@
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
@@ -10,15 +9,15 @@ import './style.css';
 
 function App() {
 
-  const defaultTareas = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
+  const defaultTasks = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
     { id: crypto.randomUUID(), nombre: "Cocinar", completado: false },
     { id: crypto.randomUUID(), nombre: "Trabajar", completado: false },
-];
+  ];
 
-const [tareas, setTareas] = useState(defaultTareas);
+  const [tasks, setTasks] = useState(defaultTasks);
 
 
-return (
+  return (
     <>
       <Box
         minHeight="100vh"
@@ -27,8 +26,8 @@ return (
         flexDirection="column"
       >
         <Header />
-        <Form tareas={tareas} setTareas={setTareas}/>
-        <ContainerList sx={{ with: 30, display:"flex "}} setTareas={setTareas} tareas={tareas}/>
+        <Form tasks={tasks} setTasks={setTasks} />
+        <ContainerList sx={{ with: 30, display: "flex " }} setTasks={setTasks} tasks={tasks} />
         <Footer />
       </Box>
     </>
