@@ -7,6 +7,7 @@ import { useState } from "react";
 import './style.css';
 
 
+
 function App() {
 
   const defaultTasks = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
