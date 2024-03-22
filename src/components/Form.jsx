@@ -10,8 +10,7 @@ import { IoMdSend } from "react-icons/io";
 
 
 
-export default function Form({  tasks , setTasks}) {
-    console.log(tasks);
+export default function Form({ tasks, setTasks }) {
 
     const [task, setTask] = useState("");
     const [validation, setValidation] = useState(false);
@@ -21,7 +20,7 @@ export default function Form({  tasks , setTasks}) {
 
     const onChange = (e) => {
         setTask(e.target.value);
-        if (e.target.value.length > 10 ) {
+        if (e.target.value.length > 10) {
             setValidation(true);
         } else {
             setValidation(false);
@@ -29,7 +28,7 @@ export default function Form({  tasks , setTasks}) {
 
     };
     const addTarea = (task) => {
-        if (task.length > 10 || task.length === 0 ) {
+        if (task.length > 10 || task.length === 0) {
             setMessage(task.length > 10 ? "Excediste los 10 caracteres" : "El campo está vacío");
             setValidation(true)
         } else {
@@ -38,7 +37,7 @@ export default function Form({  tasks , setTasks}) {
                 nombre: task,
                 completado: false
             };
-            setTasks ([...tasks, newTask]);
+            setTasks([...tasks, newTask]);
             localStorage.setItem("tarea", JSON.stringify([...tasks, newTask]));
             setTask("")
             setValidation(false)
@@ -58,8 +57,8 @@ export default function Form({  tasks , setTasks}) {
                         sx={{ width: "100%", backgroundColor: "white" }}
                         value={task}
                         error={validation}
-                        helperText={message}  
-                        
+                        helperText={message}
+
                     />
                 </Box>
                 <FormFilter setTasks={setTasks} />

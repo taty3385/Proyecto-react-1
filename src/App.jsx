@@ -9,6 +9,7 @@ import './style.css';
 
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
 
   const defaultTasks = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
     { id: crypto.randomUUID(), nombre: "Cocinar", completado: false },
@@ -18,17 +19,13 @@ function App() {
   const [tasks, setTasks] = useState(defaultTasks);
 
 
+
   return (
     <>
-      <Box
-        minHeight="100vh"
-        backgroundColor="white"
-        display="flex"
-        flexDirection="column"
-      >
-        <Header />
+      <Box className={darkMode ? 'dark-mode' : ''}>
+        <Header  setDarkMode={ setDarkMode} darkMode={darkMode} />
         <Form tasks={tasks} setTasks={setTasks} />
-        <ContainerList sx={{ with: 30, display: "flex " }} setTasks={setTasks} tasks={tasks} />
+        <ContainerList sx={{ with: 30, display: "flex " }} setTasks={setTasks} tasks={tasks} darkMode={darkMode} setDarkMode={setDarkMode} />
         <Footer />
       </Box>
     </>

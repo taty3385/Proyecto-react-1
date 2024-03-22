@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-export default function List({ tasks, setTasks }) {
+export default function List({ tasks, setTasks, darkMode, setDarkMode }) {
 
     const handleDelete = (id) => {
         const filtrarTareas = tasks.filter(t => t.id !== id);
@@ -28,15 +28,18 @@ export default function List({ tasks, setTasks }) {
         <Box display="flex" flexWrap="wrap" width="100vw" sx={{ justifyContent: "center", marginTop: "50px" }}>
             {tasks.map(task => (
                 <Box className="boxs" key={task.id} mx={2} border="2px solid #CCD5AE" borderRadius="10px" width={{ sx: "50%", md: "30%" }} margin="40px" padding="10px">
-                    <Box backgroundColor="white" display="flex" >
+                    <Box display="flex" backgroundColor={darkMode ? "#333" : "white"}
+                        color={darkMode ? "white" : "black"} >
                         <Typography
                             variant="h4"
                             gutterBottom
-                            color="black"
+
                             fontSize="20px"
                             fontWeight="bold"
                             marginRight="10px"
                             fontFamily="Eagle Lake"
+                            backgroundColor={darkMode ? "#333" : "white"}
+                            color={darkMode ? "white" : "black"}
                         >
                             {task.completado ? "Tarea completada" : "Tarea incompleta"}
                         </Typography>
@@ -49,10 +52,10 @@ export default function List({ tasks, setTasks }) {
 
                     </Box>
 
-                    <Box display="flex" backgroundColor="white">
+                    <Box display="flex" backgroundColor={darkMode ? "#333" : "white"}>
                         <Checkbox {...label} onClick={() => handleComplete(task.id)} />
                         <Box display="flex" alignItems="center" px="3px">
-                            <Typography variant="h7" gutterBottom color="black">{task.nombre}</Typography>
+                            <Typography variant="h7" gutterBottom   color={darkMode ? "white" : "black"}>{task.nombre}</Typography>
                         </Box>
                     </Box>
                 </Box>
