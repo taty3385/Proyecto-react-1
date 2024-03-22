@@ -2,12 +2,12 @@
 import List from "./List";
 
 
-export default function ContainerList({ tareas, setTareas }) {
+export default function ContainerList({ tasks, setTasks ,setDarkMode, darkMode}) {
 
   
   return (
     <>
-      <List setTareas={setTareas} tareas={tareas} />
+      <List setTasks={setTasks} tasks={tasks} setDarkMode={setDarkMode} darkMode={darkMode} />
       
 </>
   );

@@ -8,16 +8,13 @@ import {
     InputLabel,
 } from "@mui/material";
 
-export default function FormFilter({ setTareas }) {
+export default function FormFilter({ setTasks }) {
 
-    const [filtro, setFiltro] = useState("Todas");
-   
-   
-   
-   
+    const [filter, setFilter] = useState("Todas");
+
     const handleChange = (e) => {
-        setFiltro(e.target.value);
-        
+        setFilter(e.target.value);
+
 
         const tareasFiltradas = JSON.parse(localStorage.getItem("tarea")).filter(
             (tarea) => {
@@ -31,11 +28,11 @@ export default function FormFilter({ setTareas }) {
             }
         );
 
-        setTareas(tareasFiltradas);
+        setTasks(tareasFiltradas);
     };
 
     return (
-        <Box sx={{ width: "100%", display:"flex", justifyContent:"center"  }} >
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }} >
             <Box width="80%">
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Seleccionar</InputLabel>
@@ -45,7 +42,7 @@ export default function FormFilter({ setTareas }) {
                         id="demo-simple-select"
                         sx={{ background: "white" }}
                         label="Age"
-                        value={filtro}
+                        value={filter}
                         onChange={handleChange}
                     >
                         <MenuItem value="Todas">Todas</MenuItem>

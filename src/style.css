@@ -4,6 +4,14 @@ body{
     
 }
 
+.dark-mode {
+  background-color: hsl(0, 0%, 20%);
+  color: #fff;
+}
+
+
+
+
 
 @media(max-width: 539px){
  .boxs{

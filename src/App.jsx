@@ -1,4 +1,3 @@
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
@@ -8,27 +7,25 @@ import { useState } from "react";
 import './style.css';
 
 
-function App() {
 
-  const defaultTareas = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const defaultTasks = localStorage.getItem("tarea") ? JSON.parse(localStorage.getItem("tarea")) : [
     { id: crypto.randomUUID(), nombre: "Cocinar", completado: false },
     { id: crypto.randomUUID(), nombre: "Trabajar", completado: false },
-];
+  ];
 
-const [tareas, setTareas] = useState(defaultTareas);
+  const [tasks, setTasks] = useState(defaultTasks);
 
 
-return (
+
+  return (
     <>
-      <Box
-        minHeight="100vh"
-        backgroundColor="white"
-        display="flex"
-        flexDirection="column"
-      >
-        <Header />
-        <Form tareas={tareas} setTareas={setTareas}/>
-        <ContainerList sx={{ with: 30, display:"flex "}} setTareas={setTareas} tareas={tareas}/>
+      <Box className={darkMode ? 'dark-mode' : ''}>
+        <Header  setDarkMode={ setDarkMode} darkMode={darkMode} />
+        <Form tasks={tasks} setTasks={setTasks} />
+        <ContainerList sx={{ with: 30, display: "flex " }} setTasks={setTasks} tasks={tasks} darkMode={darkMode} setDarkMode={setDarkMode} />
         <Footer />
       </Box>
     </>
