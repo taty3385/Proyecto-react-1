@@ -23,7 +23,7 @@ Este proyecto consiste en una aplicación de lista de tareas desarrollada comple
 - **Filtrado de Tareas**: Con la ayuda del filtro, los usuarios pueden seleccionar tareas completadas, no completadas o ver todas las tareas.
 - **Componentización**: La aplicación está estructurada en componentes independientes, siguiendo el patrón de diseño recomendado.
 - **Persistencia de Datos**: Al eliminar o marcar una tarea como completada, se actualiza tanto en el estado de la aplicación como en el localStorage.
-
+- **Modo oscuro**:  Es una función que permite a los usuarios cambiar la apariencia de la aplicación entre un fondo oscuro y texto claro. Proporciona una experiencia visual más cómoda en entornos con poca luz y puede ayudar a reducir la fatiga visual
 
 ## Componentes
 
