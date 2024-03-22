@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-export default function List({ tasks, setTasks, darkMode, setDarkMode }) {
+export default function List({ tasks, setTasks, darkMode }) {
 
     const handleDelete = (id) => {
         const filtrarTareas = tasks.filter(t => t.id !== id);
