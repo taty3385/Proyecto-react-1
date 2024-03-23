@@ -12,9 +12,7 @@ body{
 }
 
 
-.MuiTextField-root:focus {
-  border-color: blue;
-}
+
 
 
 @media(max-width: 539px){
