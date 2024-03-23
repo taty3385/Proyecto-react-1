@@ -25,7 +25,7 @@ export default function List({ tasks, setTasks, darkMode }) {
 
     return (
 
-        <Box display="flex" flexWrap="wrap" width="100vw" sx={{ justifyContent: "center", marginTop: "50px" }}>
+        <Box display="flex" flexWrap="wrap" width="100vw" sx={{ justifyContent: "center" }}>
             {tasks.map(task => (
                 <Box className="boxs" key={task.id} mx={2} border="2px solid #CCD5AE" borderRadius="10px" width={{ sx: "50%", md: "30%" }} margin="40px" padding="10px">
                     <Box display="flex" backgroundColor={darkMode ? "#333" : "white"}
@@ -44,7 +44,7 @@ export default function List({ tasks, setTasks, darkMode }) {
                             {task.completado ? "Tarea completada" : "Tarea incompleta"}
                         </Typography>
                         <IconButton aria-label="delete" size="small" sx={{ color: "#D4A373" }} onClick={() => handleDelete(task.id)}>
-                            <DeleteIcon fontSize="20px" color="#D4A373" />
+                            <DeleteIcon fontSize="20px" sx={{ color: darkMode ? "white" : "#D4A373" }} />
                         </IconButton>
 
 
@@ -53,9 +53,10 @@ export default function List({ tasks, setTasks, darkMode }) {
                     </Box>
 
                     <Box display="flex" backgroundColor={darkMode ? "#333" : "white"}>
-                        <Checkbox {...label} onClick={() => handleComplete(task.id)} />
+                        <Checkbox  sx={{ color: darkMode ? 'white' : 'black' }} onClick={() => handleComplete(task.id)} />
                         <Box display="flex" alignItems="center" px="3px">
-                            <Typography variant="h7" gutterBottom   color={darkMode ? "white" : "black"}>{task.nombre}</Typography>
+                            <Typography variant="h7" gutterBottom  fontFamily="Verdana, Geneva, Tahoma, sans-serif"
+                                color={darkMode ? "white" : "black"}>{task.nombre}</Typography>
                         </Box>
                     </Box>
                 </Box>

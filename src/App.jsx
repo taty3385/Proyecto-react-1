@@ -22,7 +22,7 @@ function App() {
 
   return (
     <>
-      <Box className={darkMode ? 'dark-mode' : ''}>
+      <Box className={darkMode ? 'dark-mode' : ''} sx={{ minHeight: "100vh", display:"flex", flexDirection:"column", justifyContent:"space-around"}}>
         <Header  setDarkMode={ setDarkMode} darkMode={darkMode} />
         <Form tasks={tasks} setTasks={setTasks} />
         <ContainerList sx={{ with: 30, display: "flex " }} setTasks={setTasks} tasks={tasks} darkMode={darkMode} setDarkMode={setDarkMode} />
