@@ -40,7 +40,8 @@ export default function FormFilter({ setTasks }) {
 
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        sx={{ background: "white" }}
+                        sx={{ background: "white", "&:hover": {
+                            borderColor: "violet" ,  backgroundColor: "pink" } }}
                         label="Age"
                         value={filter}
                         onChange={handleChange}

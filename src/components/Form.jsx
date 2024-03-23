@@ -54,10 +54,15 @@ export default function Form({ tasks, setTasks }) {
                     <TextField
                         label="Tarea"
                         onChange={onChange}
-                        sx={{ width: "100%", backgroundColor: "white" }}
+                        sx={{
+                            width: "100%", backgroundColor: "white", "&:hover": {
+                                backgroundColor: "pink"
+                            }
+                        }}
                         value={task}
                         error={validation}
                         helperText={message}
+
 
                     />
                 </Box>
