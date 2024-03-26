@@ -1,11 +1,6 @@
 import FormFilter from "./FormFilter";
 import { useState } from "react";
-import {
-    Box,
-    TextField,
-    Button,
-
-} from "@mui/material";
+import { Box, TextField, Button, } from "@mui/material";
 import { IoMdSend } from "react-icons/io";
 
 
@@ -15,8 +10,6 @@ export default function Form({ tasks, setTasks }) {
     const [task, setTask] = useState("");
     const [validation, setValidation] = useState(false);
     const [message, setMessage] = useState("")
-
-
 
     const onChange = (e) => {
         setTask(e.target.value);
@@ -54,11 +47,7 @@ export default function Form({ tasks, setTasks }) {
                     <TextField
                         label="Tarea"
                         onChange={onChange}
-                        sx={{
-                            width: "100%", backgroundColor: "white", "&:hover": {
-                                backgroundColor: "pink"
-                            }
-                        }}
+                        sx={{width: "100%", backgroundColor: "white"}}
                         value={task}
                         error={validation}
                         helperText={message}

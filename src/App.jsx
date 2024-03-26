@@ -26,7 +26,7 @@ function App() {
         <Header  setDarkMode={ setDarkMode} darkMode={darkMode} />
         <Form tasks={tasks} setTasks={setTasks} />
         <ContainerList sx={{ with: 30, display: "flex " }} setTasks={setTasks} tasks={tasks} darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Footer />
+        <Footer darkMode={darkMode} />
       </Box>
     </>
   );
