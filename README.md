@@ -47,7 +47,7 @@ La funcionalidad de la aplicación está organizada en los siguientes componente
 
 ## Demostración
 
-[Enlace a la aplicación desplegada](URL_DE_LA_APP)
+[Enlace a la aplicación desplegada](https://proyect-react-1.vercel.app)
 
 
 
