@@ -1,12 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import {
-    Box,
-    MenuItem,
-    FormControl,
-    Select,
-    InputLabel,
-} from "@mui/material";
+import { Box, MenuItem, FormControl, Select, InputLabel } from "@mui/material";
 
 export default function FormFilter({ setTasks }) {
 
@@ -36,13 +30,9 @@ export default function FormFilter({ setTasks }) {
             <Box width="80%">
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Seleccionar</InputLabel>
-                    <Select
-
-                        labelId="demo-simple-select-label"
+                    <Select labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        sx={{ background: "white", "&:hover": {
-                            borderColor: "violet" ,  backgroundColor: "pink" } }}
-                        label="Age"
+                        sx={{ background: "white" }}
                         value={filter}
                         onChange={handleChange}
                     >
