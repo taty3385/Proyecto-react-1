@@ -16,7 +16,7 @@ export default function Footer({ darkMode }) {
 
         </IconButton>
         <IconButton href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank">
-          {darkMode ? <FaLinkedin className='dark-mode' /> : <FaLinkedin />}
+          {darkMode ? <FaLinkedin className='dark-mode' /> : <FaLinkedin color="blue" />}
 
         </IconButton>
       </Box>
