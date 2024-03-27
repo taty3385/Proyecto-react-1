@@ -6,7 +6,7 @@ export default function Footer({ darkMode }) {
   return (
     <Box display="flex" justifyContent="space-around" height="100px" alignItems="center">
       <Box></Box>
-      <Typography>
+      <Typography fontFamily="Times New Roman" >
         Hecho by Tamara Zarate
         <FaHeart  color="red"/>
       </Typography>
