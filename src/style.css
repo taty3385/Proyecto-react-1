@@ -1,9 +1,10 @@
-body{
-    margin : 0px;
-    padding: 0px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+body {
+  margin: 0px;
+  padding: 0px;  background-image: url('https://media.istockphoto.com/id/1266148989/es/v%C3%ADdeo/textura-de-fondo-de-papel-blanco-arrugado-detener-la-animaci%C3%B3n-de-movimiento-bucle-sin.jpg?s=640x640&k=20&c=RtqcvFj6mhKrh8Q2ZetQICrbJqaUgM4y9zlFksnjE4g=');
+  background-size: cover;
+  background-position: center;
 
-    
+  
 }
 
 .dark-mode {
@@ -15,9 +16,9 @@ body{
 
 
 
-@media(max-width: 539px){
- .boxs{
+@media(max-width: 539px) {
+  .boxs {
     width: 50%;
-      margin: 20px
-    }
+    margin: 20px
+  }
 }

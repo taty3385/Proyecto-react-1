@@ -41,8 +41,8 @@ export default function Form({ tasks, setTasks }) {
 
 
     return (
-        <Box display="flex" width="100%" justifyContent="center" >
-            <Box display="flex" width="80%" borderRadius="5px">
+        <Box display="flex" width="100%" justifyContent="center" marginLeft="" >
+            <Box display="flex"  width="80%" borderRadius="5px">
                 <Box component="form" width="80%" >
                     <TextField
                         label="Tarea"
